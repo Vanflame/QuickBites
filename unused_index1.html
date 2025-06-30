@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Skibidi Bites</title>
+    <link rel="stylesheet" href="home-style.css">
+</head>
+
+<body>
+
+    <section id="hero">
+        <div class="overlay">
+            <h1>Welcome to Skibidi Bites</h1>
+            <p>Unang Kagat, I Miss You Agad!</p>
+            <button onclick="enterSite()" class="fade-button">Enter Website</button>
+        </div>
+    </section>
+
+    <script>
+        function enterSite() {
+            document.body.style.opacity = "0";
+            setTimeout(() => {
+                window.location.href = "home.html#";
+            }, 500);
+        }
+
+
+        window.onload = function () {
+            document.body.classList.add("loaded");
+        };
+    </script>
+
+</body>
+
+</html>

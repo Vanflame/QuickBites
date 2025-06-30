@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Bites</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="highlight-copy.css">
+    <link rel="icon" href="image/logo.jpg">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav-pin">
+
+            <header>
+                <div class="logo"><a href="index.html"><img src="image/logo.png" alt=""></a></div>
+                <button class="menu-toggle">&#9776;</button>
+            </header>
+
+            <nav class="nav-menu">
+                <a class="hover hide" onclick="showSection('home')" href="#">Home</a>
+                <a class="hover hide" onclick="showSection('about')" href="#">About Us</a>
+                <a class="hover hide" onclick="showSection('service')" href="#">Services</a>
+                <a class="login" href="login.html?section=login">Login</a>
+                <a class="register" href="login.html?section=register">Register <img src="image/arrow.png" alt=""></a>
+            </nav>
+        </nav>
+        <div class="Loader">
+            <div class="LoaderLogo"><img src="image/logo.png" alt="">
+                <div>
+                    <h3>Welcome to <span class="yellow">Quick Bites</span> Fast, Fresh, Flavorful!</h3>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div id="home" class="section">
+                <div class="food_image">
+                    <div class="food-image"></div>
+                    <div class="food_image_text">
+                        <h1> <span class="yellow">Top Picks </span> here at Quick Bites</h1>
+                    </div>
+                    <div class="masking_blur">
+                        <div class="chicken"><img src="image/3.PNG" alt=""></div>
+                        <div class="fries"><img src="image/2.PNG" alt=""></div>
+                        <div class="burger"><img src="image/1.PNG" alt=""></div>
+                    </div>
+                    <div class="button">
+                        <h2 type="" class="button_getnow"><a onclick="showSection('login')"
+                                href="userhomepage.html">Order
+                                Now</a></h2>
+                    </div>
+
+                </div>
+                <div class="ndpage">
+                    <h2>Fresh, Tasty, & Made with Love</h2>
+                    <p>Explore our delicious menu and enjoy an amazing food experience.</p>
+                </div>
+
+            </div>
+            <div id="about" class="section hidden">
+                <div class="about-container">
+                    <h1>Welcome to <span class="yellow">Quick Bites</span></h1>
+                    <h4>At <span class="yellow">Quick Bites </span>, we believe great food should be quick, delicious,
+                        and
+                        unforgettable! Whether you're craving a juicy
+                        burger, crispy fries, or a refreshing shake, we've got you covered with flavors that hit the
+                        spot.
+
+                        Our ingredients are fresh, our service is fast, and every bite is made with love. Whether you're
+                        dining
+                        in, grabbing a
+                        takeaway, or ordering online, we ensure quality and taste in every meal.
+
+                        So go ahead treat yourself to a quick, tasty experience. Because at Quick Bites, fast food
+                        doesn't
+                        mean
+                        compromising on flavor!</h4>
+                </div>
+            </div>
+
+            <div id="service" class="section hidden">
+                <div class="service-inner">
+                    <h1>Our <span class="yellow">Services</span> </h1>
+                    <div>
+                        <div><img src="svg/dining.svg" alt=""></div>
+                        <h3> Dine-in Experience </h3>
+                        <div><img src="svg/catering.svg" alt=""></div>
+                        <h3>Food Catering</h3>
+                        <div><img src="svg/delivery.svg" alt=""></div>
+                        <h3>Delivery Service</h3>
+                        <h5 class="service-h5-text">
+                            <h4>
+                                <class>Need</class> more details? <span class="yellow">Contact us</span> for bookings,
+                                bulk
+                                orders,
+                                or special requests!
+                            </h4>
+                        </h5>
+                    </div>
+
+
+                    <div class="only-flex" id="contact">
+                        <div><img src="svg/call.svg" alt="">
+                            <h5><span class="yellow">Phone:</span> +63 900 123 4567</h5>
+                        </div>
+                        <div><img src="svg/email.svg" alt="">
+                            <h5><span class="yellow">Email:</span> contact@quickbites.com</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="order-now" class="section hidden">
+                <div class="innerblur">
+                    <div class="innerblur1">
+                        <h2><span class="yellow"> Order </span> Your Favorite Food</h2>
+                        <form id="order-form">
+                            <label for="orderName">Name:</label>
+                            <input id="orderName" onchange="calculateTotal()" placeholder="Enter your name" type="text"
+                                required>
+                            <label for="food-item">Select Food:</label>
+                            <select id="food-item" onchange="calculateTotal()">
+                                <option value="Burger" data-price="45">QB YumBurger ₱45</option>
+                                <option value="Fries" data-price="55">QB Fries Regular ₱55</option>
+                                <option value="Chicken" data-price="85">QB Chicken 1pcs ₱85</option>
+                            </select><br>
+
+                            <label for="quantity">Quantity:</label>
+                            <input placeholder="Enter Quantity" value="1" type="number" id="quantity" min="0"
+                                onchange="calculateTotal()"><br>
+
+                            <p>Total Price: <strong id="total-price">₱45</strong></p>
+
+                            <button id="order-now-submit" type="submit">Place Order</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="book-now" class="section hidden">
+                <div class="innerblur">
+                    <div class="innerblur1">
+                        <h2><span class="yellow">Book</span> a Table</h2>
+                        <form id="book-form">
+                            <label>Name:</label><input id="booking-name" placeholder="Enter your name" type="text"
+                                required><br>
+                            <label>Email:</label><input id="booking-email" placeholder="Enter your email" type="email"
+                                required><br>
+                            <label>Date:</label><input id="booking-date" placeholder="Enter the date" type="date"
+                                required><br>
+                            <label>Total Guest:</label><input id="booking-guests" placeholder="Enter the total Guest"
+                                type="number" required><br>
+                            <button id="book-now-submit" type="submit">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="track" class="section hidden">
+                <div class="innerblur">
+                    <div class="innerblur1">
+                        <h2><span class="yellow">Track</span> orders & bookings</h2>
+                        <form action>
+                            <label for="idtrack">OrderID or BookingID:</label>
+                            <input placeholder="e.g Q*000123" type="text" id="idtrack">
+                            <button class="trackbutton_book" style="display: none;" id="track-button"
+                                type="button">Search
+                                booking</button>
+                            <button class="trackbutton_order" style="display: none;" id="track-button-order"
+                                type="button">Search order</button>
+                        </form>
+                        <div class="booking_data">
+                            <h3>Date: <span id="track-booking-date"></span></h3>
+                            <h3>Time: <span id="track-booking-time"></span></h3>
+                            <h3>BookingID: <span id="track-booking-bookingid"></span></h3>
+                            <h3>Name: <span id="track-booking-name"></span></h3>
+                            <h3>Email: <span id="track-booking-email"></span></h3>
+                            <h3>Date Booked: <span id="track-booking-date-booked"></span></h3>
+                            <h3>Total Guest: <span id="track-booking-guest"></span></h3>
+                            <h3>Type: <span id="track-booking-type"></span></h3>
+                            <h3>Last Save Date: <span id="track-booking-last-save-date"></span></h3>
+                            <h3>Last Save Time: <span id="track-booking-last-save-time"></span></h3>
+                        </div>
+                        <div class="buttonEdits" style="display: none;">
+                            <a id="edit-button">Edit</a>
+                            <a id="save-button">Save</a>
+                            <a id="delete-button">Delete</a>
+                        </div>
+                        <div class="order_data">
+                            <h3>Date: <span id="track-order-date"></span></h3>
+                            <h3>Time: <span id="track-order-time"></span></h3>
+                            <h3>OrderID: <span id="track-order-orderid"></span></h3>
+                            <h3>Name: <span id="track-order-name"></span></h3>
+                            <h3>Item: <span id="track-order-item"></span></h3>
+                            <h3>Price: <span id="track-order-price"></span></h3>
+                            <h3>Quantity: <span id="track-order-quantity"></span></h3>
+                            <h3>Total: <span id="track-order-total"></span></h3>
+                            <h3>Type: <span id="track-order-type"></span></h3>
+                            <h3>Last Save Date: <span id="track-order-last-save-date"></span></h3>
+                            <h3>Last Save Time: <span id="track-order-last-save-time"></span></h3>
+                        </div>
+                        <div class="buttonEdits-order">
+                            <a id="delete-button-order">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Popup for Booking and Order Confirmation -->
+            <div id="confirmationModal" class="modal"
+                style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+                <div class="modal-content"
+                    style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <span id="closeModal"
+                        style="color: #aaa; float: right; font-size: 24px; font-weight: bold; cursor: pointer;">&times;</span>
+                    <h2 id="modalTitle" style="margin-top: 0; font-size: 20px;">Confirmation</h2>
+                    <div id="modalBody" style="margin-top: 10px; font-size: 14px;"></div>
+                    <button id="modalCloseButton"
+                        style="margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Quick Bites. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+<script type="module" src="index.js"></script>
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+</html>

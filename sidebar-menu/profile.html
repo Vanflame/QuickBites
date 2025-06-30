@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js" defer></script>
+</head>
+
+<body>
+  <nav id="sidebar">
+    <ul>
+      <li>
+        <div class="contain-logo">
+          <img src="/image/logo.png" alt="">
+          <span class="logo"><span class="yellow">QuickBites</span></span>
+        </div>
+        <button id="toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <a href="/userhomepage.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
+          </svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <!-- <li>
+            <a href="dashboard.html">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3E3E3E">
+                <path
+                  d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Z" />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+          </li> -->
+      <li>
+        <a href="profile.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3E3E3E">
+            <path
+              d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+          </svg>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <button class="dropdown-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z" />
+          </svg>
+          <span>Bookings</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu" id="sub-menu">
+          <div>
+            <li><a href="#">Pending</a></li>
+            <li><a href="#">Confirmed</a></li>
+            <li><a href="#">Cancelled</a></li>
+          </div>
+        </ul>
+      </li>
+      <li class="active">
+
+        <button class="dropdown-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z" />
+          </svg>
+          <span>Orders</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu" id="sub-menu-orders">
+          <div id="sub-menu-div">
+            <li><a href="orders.html?section=orders-pending" class="order-link" data-target="orders-pending">
+                <div class="container1">
+                  <div class="header">
+                    <div class="shopping">
+                      Pending
+                      <span class="quantity" id="quantity-pending">0</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li><a href="orders.html?section=orders-confirmed" class="order-link" data-target="orders-confirmed">
+                <div class="container1">
+                  <div class="header">
+                    <div class="shopping">
+                      Confirmed
+                      <span class="quantity" id="quantity-confirmed">0</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li><a href="orders.html?section=orders-delivered" class="order-link" data-target="orders-delivered">
+                <div class="container1">
+                  <div class="header">
+                    <div class="shopping">
+                      Delivered
+                      <span class="quantity" id="quantity-delivered">0</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li><a href="orders.html?section=orders-cancelled" class="order-link" data-target="orders-cancelled">
+                <div class="container1">
+                  <div class="header">
+                    <div class="shopping">
+                      Cancelled
+                      <span class="quantity" id="quantity-cancelled">0</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </li>
+
+      <!-- <li class="">
+          <a href="calendar.html">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M20.5 11.3V7.04001C20.5 3.01001 19.56 2 15.78 2H8.22C4.44 2 3.5 3.01001 3.5 7.04001V18.3C3.5 20.96 4.96001 21.59 6.73001 19.69L6.73999 19.68C7.55999 18.81 8.80999 18.88 9.51999 19.83L10.53 21.18"
+                  stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M18.2 21.4C19.9673 21.4 21.4 19.9673 21.4 18.2C21.4 16.4327 19.9673 15 18.2 15C16.4327 15 15 16.4327 15 18.2C15 19.9673 16.4327 21.4 18.2 21.4Z"
+                  stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M22 22L21 21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path opacity="0.4" d="M8 7H16" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                </path>
+                <path opacity="0.4" d="M9 11H15" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                </path>
+              </g>
+            </svg>
+            <span>Order History</span>
+          </a>
+        </li> -->
+
+      <li>
+        <a href="profile.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3E3E3E">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+          </svg>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <section class="profile-container">
+      <div class="profile-header">
+        <div class="avatar" id="profile-avatar"></div>
+        <div class="profile-details">
+          <h2 id="profile-name">Loading...</h2>
+          <p id="profile-email">Loading...</p>
+          <span class="qb-id">QuickBites ID: <strong id="qb-id">Loading...</strong></span>
+        </div>
+        <!-- <button class="edit-btn">Edit Profile</button> -->
+      </div>
+
+      <section id="view-profile-form" class="profile-container-details">
+        <h2>Account Details</h2>
+        <div class="readonly-field">
+          <strong>Contact Number:</strong>
+          <span id="view-contact">Loading...</span>
+        </div>
+        <div class="readonly-field">
+          <strong>Address:</strong>
+          <span id="view-address">Loading...</span>
+        </div>
+        <div class="readonly-field">
+          <strong>Birthday:</strong>
+          <span id="view-birthday">Loading...</span>
+        </div>
+        <div class="edit-account-details-container">
+          <button class="edit-account-details" id="edit-account-details">Edit Account Details</button>
+        </div>
+      </section>
+
+      <section id="edit-profile-form" style="display: none;" class="profile-container-editable">
+        <h2>Account Details</h2>
+        <form id="profileEditForm">
+          <label>
+            Contact Number:
+            <input type="text" id="edit-contact" placeholder="e.g. +63901-2345-678" />
+          </label>
+
+          <label>
+            Address:
+            <textarea id="edit-address" placeholder="123 QuickBites Lane, QC"></textarea>
+          </label>
+
+          <label>
+            Birthday:
+            <input type="date" id="edit-birthday" />
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="edit-account-details" id="save-edit-account-details">Save Changes</button>
+            <button type="button" class="edit-account-details" id="cancel-edit-account-details">Cancel</button>
+          </div>
+        </form>
+      </section>
+      <section class="profile-settings">
+        <h2>Account Settings</h2>
+        <div class="center-account-setting">
+          <div class="account-setting-buttons">
+            <button class="edit-account-details" id="change-password-profile">Change Password</button>
+            <button class="edit-account-details danger-btn" id="trigger-delete-account">Delete Account</button>
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+  <div id="delete-confirmation-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+      <h3 class="danger">Confirm Account Deletion</h3>
+      <p>Please enter your password to confirm:</p>
+      <input type="password" id="confirm-password" placeholder="Enter your password" />
+      <div class="modal-actions">
+        <button class="danger-btn" id="confirm-delete-account">Confirm Delete</button>
+        <button id="cancel-delete-confirmation" class="cancel-delete-confirmation">Cancel</button>
+      </div>
+      <p id="delete-error" class="error-msg" style="display: none;"></p>
+    </div>
+  </div>
+
+  <div id="password-reset-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+      <h3>Reset Password</h3>
+      <form id="passwordResetForm">
+        <div>
+          <label>
+            Current Password:
+            <input type="password" id="current-password" />
+          </label>
+        </div>
+        <div>
+          <label>
+            New Password:
+            <input type="password" id="new-password" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Confirm New Password:
+            <input type="password" id="confirm-new-password" />
+          </label>
+        </div>
+        <p id="password-reset-error" class="error-msg" style="display: none;"></p>
+        <div class="modal-actions">
+          <button type="submit" class="edit-account-details">Update Password</button>
+          <button type="button" id="cancel-password-reset">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="toast-container"></div>
+
+
+</body>
+<script type="module">
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCXJf5d9sCsjzgYLMZ4IcFTBWBg7RLWfMY",
+    authDomain: "im1project.firebaseapp.com",
+    databaseURL: "https://im1project-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "im1project",
+    storageBucket: "im1project.firebasestorage.app",
+    messagingSenderId: "141105773175",
+    appId: "1:141105773175:web:4ce3fb9fcb8b0076262472"
+  };
+
+  // 🔥 Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const dbfirestore = getFirestore(app);
+
+  const renderedCount = {
+    pending: 0,
+    confirmed: 0,
+    delivered: 0,
+    cancelled: 0,
+  };
+
+  const countOrders = async () => {
+    try {
+      const currentShortId = localStorage.getItem("shortId");
+      // Reset counts
+      Object.keys(renderedCount).forEach((key) => (renderedCount[key] = 0));
+
+      const querySnapshot = await getDocs(collection(dbfirestore, "orders"));
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        if (data.shortId === currentShortId) {
+          const status = data.status || "unknown";
+          if (renderedCount[status] !== undefined) {
+            renderedCount[status]++;
+          }
+        }
+      });
+
+      Object.entries(renderedCount).forEach(([status, count]) => {
+        const badge = document.getElementById(`quantity-${status}`);
+        if (badge) {
+          badge.innerText = count;
+          badge.style.display = count > 0 ? "inline-block" : "none";
+        }
+      });
+    } catch (error) {
+      console.error("Error counting orders:", error);
+    }
+  };
+
+  countOrders();
+</script>
+
+</html>

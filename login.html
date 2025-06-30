@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script type="module" src="login.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /*import & font*/
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --navup_color: #252525;
+        --black-primary-text: #3E3E3E;
+        --nav-hover: #223546;
+        --background-color: #F7F4E5;
+        --white-primary-text: #F7F4E5;
+        --background-innerbox: rgba(233, 227, 227, 0.795);
+        --book-now-color: #9B773D;
+        --book-now-hover: #b18848;
+        --yellow: #ffde00;
+        --yellow-hover: #e2c403;
+        --blue-1: #030A1C;
+        --blue-2: #051024;
+        --blue-3: #061831;
+        --blue-4: #0B1C3E;
+        --blue-5: #11244A;
+        --blue-6: #a5a7be;
+        --warning: #f06272;
+    }
+
+    html {
+
+        font-family: 'Poppins, sans-serif';
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--blue-2);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        color: var(--white-primary-text);
+    }
+
+    .section {
+        display: flex;
+        padding: 40px;
+        margin: 2rem;
+
+    }
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 1;
+        flex-grow: 1;
+        text-align: start;
+
+
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .label {
+
+        display: flex;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+        width: 366px;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+
+
+    .form-group {
+        display: flex;
+        width: 366px;
+
+    }
+
+    .form-check {
+        display: flex;
+        gap: 0.7rem;
+    }
+
+
+
+    .label-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    .forgot-password a {
+        font-size: 0.9em;
+        text-decoration: none;
+        color: #066ad4;
+        /* adjust color as you like */
+    }
+
+    .form-check a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #066ad4;
+        /* adjust color as you like */
+    }
+
+    .go-to {
+        font-size: 14px;
+    }
+
+    .go-to a {
+        text-decoration: none;
+        color: #066ad4;
+    }
+
+    .hyperlink {
+        text-decoration: none;
+        color: #066ad4;
+    }
+
+    .hyperlink:hover {
+        color: #0455ac;
+    }
+
+    input {
+        padding: 7px 12px;
+        background-color: var(--background-color);
+        border-radius: 0.5rem;
+    }
+
+    .bottom-margin-16px {
+        margin-bottom: 16px;
+
+    }
+
+    .bottom-margin-8px {
+        margin-bottom: 8px;
+
+    }
+
+    #login,
+    #register,
+    #reset-password {
+        background-color: var(--blue-5);
+        border-radius: 0.5rem;
+        position: relative;
+    }
+
+    #login {
+        display: none;
+    }
+
+    button {
+        padding: 7px 16px;
+        background-color: var(--yellow);
+        border-radius: 0.5rem;
+    }
+
+    button:hover {
+        background-color: var(--yellow-hover);
+    }
+
+    .yellow {
+        color: var(--yellow);
+    }
+
+    .incorrect .label {
+        background-color: var(--warning);
+        border-radius: 10px 0 0 10px;
+    }
+
+    .incorrect .input {
+        border-color: var(--warning);
+    }
+
+
+
+    .bad-warning .status {
+        text-align: center;
+        color: var(--warning);
+        width: 366px;
+
+
+    }
+
+
+
+    form .label {
+        flex-shrink: 0;
+        height: 50px;
+        width: 50px;
+        background-color: var(--blue-3);
+        fill: var(--white-primary-text);
+        color: var(--white-primary-text);
+        border-radius: 10px 0 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    form .input {
+        box-sizing: border-box;
+        flex-grow: 1;
+        min-width: 0;
+        height: 50px;
+        padding: 1em;
+        font: inherit;
+        border-radius: 0 10px 10px 0;
+        border: 2px solid var(--white-primary-text);
+        border-left: none;
+        background-color: rgb(255, 255, 255);
+        transition: 150ms ease;
+    }
+
+    form .input:focus {
+        outline: none;
+        border-color: var(--white-primary-text);
+    }
+
+    .form-group:has(input:focus)>.label,
+    .form-group:has(input:focus) .label {
+        background-color: var(--white-primary-text);
+        fill: var(--blue-2);
+        color: var(--blue-6);
+    }
+
+    .label {
+        transition: background-color 0.8s ease, color 0.8s ease;
+    }
+
+    .custom-checkbox {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+    }
+
+    .custom-checkbox input.form-check-input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .custom-checkbox .checkmark {
+        height: 18px;
+        width: 18px;
+        border-radius: 6px;
+        background-color: var(--white-primary-text);
+        border: 2px solid var(--background-color);
+        display: inline-block;
+        position: relative;
+        transition: all 0.4s ease;
+    }
+
+    .incorrect .checkmark {
+        border-color: var(--warning);
+    }
+
+    .custom-checkbox input.form-check-input:checked+.checkmark {
+        background-color: #066ad4;
+        border-color: #066ad4;
+    }
+
+    .custom-checkbox input.form-check-input:checked+.checkmark::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 5px;
+        height: 10px;
+        border: solid var(--white-primary-text);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .space-around {
+        justify-content: space-around;
+    }
+
+    .good-warning .status {
+        color: rgb(13, 138, 13);
+        width: 366px;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+
+
+    .back-button {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        color: var(--white-primary-text);
+        text-decoration: none;
+        font-weight: 500;
+        background-color: var(--blue-3);
+        border: 2px solid var(--blue-2);
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: var(--white-primary-text);
+        color: var(--blue-2);
+    }
+
+    .section h2 a {
+        cursor: default;
+    }
+</style>
+
+<body>
+    <div id="login" class="section">
+        <a href="index.html" class="back-button" title="Back to Home">⟵ Back</a>
+        <h1>
+            <img src="image/logo.png" alt="">
+        </h1>
+        <div class="login-inner inner">
+            <h2>Login to your account</h2>
+            <div id="login-status" class="status"></div>
+            <!-- <div id="login-good-status" class="good-status"></div> -->
+
+            <form action="" autocomplete="off">
+
+                <div class="form-group bottom-margin-16px">
+                    <label for="login-email" class="label password bottom-margin-8px"><svg
+                            xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="undefined">
+                            <path
+                                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="email" placeholder="you@example.com" id="login-email">
+                </div>
+                <div class="form-group bottom-margin-16px">
+                    <label class="forgot" for="login-password">
+                        <div class="label label-flex  bottom-margin-8px">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                                    width="24">
+                                    <path
+                                        d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z">
+                                    </path>
+                                </svg></span>
+
+                        </div>
+                    </label>
+
+                    <input class="input" type="password" placeholder="Password" id="login-password">
+                </div>
+                <div class="form-group space-around">
+                    <label class="custom-checkbox form-check bottom-margin-16px" for="checkbox-click-remember-password">
+                        <input type="checkbox" id="checkbox-click-remember-password" class="form-check-input"
+                            name="remember" />
+                        <span class="checkmark"></span>
+                        <span class="form-check-label">Keep me logged in</span> </label> <span class="forgot-password">
+                        <a href="#forgot" class="hyperlink form-check bottom-margin-16px" id="forgot-password">I forgot
+                            my password</a>
+                    </span>
+                </div>
+            </form>
+            <button class="login-button bottom-margin-8px" id="login-button">Login</button>
+            <div class="go-to">
+                Don't have account yet? <a id="register-here" href="#register" class="hyperlink">Sign
+                    up</a>
+            </div>
+        </div>
+    </div>
+    <div id="reset-password" class="section">
+        <a id="go-back-login" href="#" class="back-button" title="Back to Login">⟵ Back</a>
+        <h1>
+            <img src="image/logo.png" alt="">
+        </h1>
+        <div class="login-inner inner">
+            <h2>Recover your account</h2>
+            <div id="reset-status" class="status"></div>
+            <form action="" autocomplete="off">
+                <div class="form-group bottom-margin-16px">
+                    <label for="login-email" class="label password bottom-margin-8px"><svg
+                            xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="undefined">
+                            <path
+                                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="email" placeholder="you@example.com" id="reset-password-email">
+                </div>
+            </form>
+            <button class="login-button bottom-margin-8px" id="reset-password-button">Send Password Reset Link</button>
+
+        </div>
+    </div>
+    <div id="toast-container"></div>
+    <div id="register" class="section hidden">
+        <a href="index.html" class="back-button" title="Back to Home">⟵ Back</a>
+        <h1>
+            <img src="image/logo.png" alt="">
+        </h1>
+        <div class="register-inner inner">
+            <h2>Sign up for <span class="yellow">QuickBites</span></h2>
+            <div id="register-status" class="status"></div>
+            <!-- <div id="register-good-status" class="good-status"></div> -->
+            <form action="" autocomplete="off">
+                <div class="form-group bottom-margin-16px">
+                    <label class="label" for="fName"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                            viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="text" id="fName" placeholder="e.g. Juan">
+                </div>
+                <div class="form-group bottom-margin-16px">
+                    <label class="label" for="lName"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                            viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="text" id="lName" placeholder="e.g. Dela Cruz">
+                </div>
+                <div class="form-group bottom-margin-16px">
+                    <label class="label" for="register-email"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="undefined">
+                            <path
+                                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="email" placeholder="you@example.com" id="register-email">
+                </div>
+                <div class="form-group bottom-margin-16px">
+                    <label class="label" for="register-password"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                            viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="password" placeholder="Password" id="register-password">
+                </div>
+                <div class="form-group bottom-margin-16px">
+                    <label class="label" for="repeat-password"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                            viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z">
+                            </path>
+                        </svg></label>
+                    <input class="input" type="password" placeholder="Confirm your password" id="repeat-password">
+                </div>
+                <div class="form-group">
+                    <label class="custom-checkbox form-check bottom-margin-16px" for="checkbox-click-agree">
+                        <input type="checkbox" class="form-check-input" name="remember" id="checkbox-click-agree">
+                        <span class="checkmark" id="checkmark"></span>
+                        <span class="form-check-label">
+                            I've read and agree to the <a href="terms.html" class="hyperlink" target="_blank"
+                                tabindex="-1">terms
+                                of
+                                service</a>&nbsp;&amp;&nbsp;
+                            <a href="policy.html" target="_blank" rel="noopener" class="hyperlink">Privacy Policy</a>.
+                        </span>
+                    </label>
+                </div>
+            </form>
+            <button class="register-button bottom-margin-8px " id="register-button">Register</button>
+
+            <div class="go-to">
+                Already have account? <a id="login-here" href="#login" class="hyperlink">Sign in</a>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

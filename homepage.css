@@ -1,0 +1,71 @@
+:root {
+    --navup_color: #252525;
+    --black-primary-text: #3E3E3E;
+    --nav-hover: #223546;
+    --background-color: #F7F4E5;
+    --white-primary-text: #F7F4E5;
+    --book-now-color: #9B773D;
+    --book-now-hover: #b18848;
+    --yellow: #ffde00;
+    --yellow-hover: #e2c403;
+}
+
+#profile-email {
+    width: 5rem;
+}
+
+.home:hover,
+.dropdown:hover {
+    border-radius: 10px;
+}
+
+
+.dropdown-content a:hover {
+    background-color: var(--book-now-hover);
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+
+
+.dropdown,
+.dropdown-theme {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--book-now-color);
+    min-width: 160px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    margin-top: 2.9rem;
+    cursor: pointer;
+
+}
+
+.dropdown-content a {
+    color: var(--white-primary-text);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    width: 17rem;
+    font-weight: 700;
+}
+
+.profile-logo {
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    justify-content: center;
+    border: none;
+}

@@ -1,0 +1,45 @@
+/* Highlighted ID style */
+.highlight-id {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--black-primary-text);
+    background-color: rgba(255, 222, 0, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    user-select: text;
+
+}
+
+#modalBody {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Copy button style */
+.copy-button {
+
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    background-color: #ffde00;
+    color: #3E3E3E;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #e2c403;
+}
+
+/* Reminder text style */
+.copy-reminder {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: var(--black-primary-text);
+    font-weight: 600;
+    font-style: italic;
+    user-select: none;
+}

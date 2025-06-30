@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homapage</title>
+    <script src="cart.js" defer></script>
+    <script type="module" src="pulldata.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="highlight-copy.css">
+    <link rel="icon" href="image/titlelogo.png">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="cart.css">
+    <!-- Firebase core + services -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script>
+
+</head>
+
+
+<body>
+
+    <nav class="nav-pin">
+
+        <header id="logo-container">
+            <div class="logo"><img src="image/logo.png" alt=""></div>
+            <button class="menu-toggle">&#9776;</button>
+        </header>
+
+        <nav class="nav-menu" id="nav-menu">
+            <a class="hover hide" id="nav-home" href="#">Home</a>
+            <a class="hover hide" id="nav-service" href="#">Services</a>
+            <a class="hover hide" id="nav-order" href="#">Order Now</a>
+            <a class="hide hover" id="nav-book" href="#">Book Now</a>
+            <a class="hide hover" id="nav-track" href="#">Track Orders & Bookings</a>
+            <div class="container1">
+                <div class="header">
+                    <div class="shopping">
+                        <?xml version="1.0" encoding="iso-8859-1"?>
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                        <svg fill="#F7F4E5" height="40px" width="40px" version="1.1" id="Capa_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 483.1 483.1" xml:space="preserve">
+                            <g>
+                                <path
+                                    d="M434.55,418.7l-27.8-313.3c-0.5-6.2-5.7-10.9-12-10.9h-58.6c-0.1-52.1-42.5-94.5-94.6-94.5s-94.5,42.4-94.6,94.5h-58.6
+                                    		c-6.2,0-11.4,4.7-12,10.9l-27.8,313.3c0,0.4,0,0.7,0,1.1c0,34.9,32.1,63.3,71.5,63.3h243c39.4,0,71.5-28.4,71.5-63.3
+                                    		C434.55,419.4,434.55,419.1,434.55,418.7z M241.55,24c38.9,0,70.5,31.6,70.6,70.5h-141.2C171.05,55.6,202.65,24,241.55,24z
+                                    		 M363.05,459h-243c-26,0-47.2-17.3-47.5-38.8l26.8-301.7h47.6v42.1c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h141.2v42.1
+                                    		c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h47.6l26.8,301.8C410.25,441.7,389.05,459,363.05,459z" />
+                            </g>
+                        </svg>
+                        <span class="quantity">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <li class="dropdown">
+                <button class="track hide hover profile-logo" id="account" href="#"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-user-round h-4 w-5 flex-shrink-0">
+                        <circle cx="12" cy="8" r="5"></circle>
+                        <path d="M20 21a8 8 0 0 0-16 0"></path>
+                    </svg>Account</button>
+                <div class="dropdown-content">
+                    <!-- <a href="#" class="dropdown-profile-hover profile-text"><span id="UserEmail"></span></a> -->
+                    <a href="#" class="dropdown-profile-hover profile-text" id="ProfileClick">Profile</a>
+                    <a href="#" class="dropdown-profile-hover" id="logout">Logout</a>
+                </div>
+            </li>
+        </nav>
+    </nav>
+    <div id="toast-container"></div>
+
+
+
+
+    <div class="Loader">
+        <div class="LoaderLogo"><img src="image/logo.png" alt="">
+            <div>
+                <h3>Welcome to <span class="yellow">Quick Bites</span> Fast, Fresh, Flavorful!</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="home" class="section">
+        <div class="food_image">
+            <div class="food_image_text">
+                <h1> <span class="yellow">Top Picks </span> here at Quick Bites</h1>
+            </div>
+            <div class="masking_blur">
+                <div class="chicken"><img src="image/3.png" alt=""></div>
+                <div class="fries"><img src="image/2.png" alt=""></div>
+                <div class="burger"><img src="image/1.png" alt=""></div>
+            </div>
+            <div class="button">
+                <h2 type="" class="button_getnow"><a onclick="showSection('order-now')" href="#Order">Order Now</a></h2>
+            </div>
+
+        </div>
+        <div class="ndpage">
+            <h2>Fresh, Tasty, & Made with Love</h2>
+            <p>Explore our delicious menu and enjoy an amazing food experience.</p>
+        </div>
+
+    </div>
+    <div id="about" class="section hidden">
+        <div class="about-container">
+            <h1>Welcome to <span class="yellow">Quick Bites</span> Fast, Fresh, Flavorful!</h1>
+            <h4>At <span class="yellow">Quick Bites </span>, we believe great food should be quick, delicious, and
+                unforgettable! Whether you're craving a juicy
+                burger, crispy fries, or a refreshing shake, we've got you covered with flavors that hit the spot.
+
+                Our ingredients are fresh, our service is fast, and every bite is made with love. Whether you're dining
+                in, grabbing a
+                takeaway, or ordering online, we ensure quality and taste in every meal.
+
+                So go ahead treat yourself to a quick, tasty experience. Because at Quick Bites, fast food doesn't mean
+                compromising on flavor!</h4>
+        </div>
+    </div>
+
+    <div id="service" class="section hidden">
+        <div class="service-inner">
+            <h1>Our <span class="yellow">Services</span> </h1>
+            <div>
+                <div><img src="svg/dining.svg" alt=""></div>
+                <h3> Dine-in Experience </h3>
+                <div><img src="svg/catering.svg" alt=""></div>
+                <h3>Food Catering</h3>
+                <div><img src="svg/delivery.svg" alt=""></div>
+                <h3>Delivery Service</h3>
+                <h5 class="service-h5-text">
+                    <h4>
+                        <class>Need</class> more details? <span class="yellow">Contact us</span> for bookings, bulk
+                        orders,
+                        or special requests!
+                    </h4>
+                </h5>
+            </div>
+
+
+            <div class="only-flex" id="contact">
+                <div><img src="svg/call.svg" alt="">
+                    <h5><span class="yellow">Phone:</span> +63 900 123 4567</h5>
+                </div>
+                <div><img src="svg/email.svg" alt="">
+                    <h5><span class="yellow">Email:</span> contact@quickbites.com</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="cardFooter">
+            <div class="totalup">Total:&nbsp;&#8369;
+                <span class="total">0</span>
+            </div>
+            <div class="checkOut">
+                <div><span id="order-now-submit">Checkout &nbsp;</span></div>
+                <div class="closeShopping">Close</div>
+            </div>
+        </div>
+    </div>
+    <div id="order-now" class="section hidden">
+        <div class="innerblur">
+            <div class="container">
+                <div class="header">
+                    <h1><span class="yellow">QuickBites</span> Food Menu</h1>
+                </div>
+                <div class="categories">
+                    <button onclick="filterCategory('All')">All</button>
+                    <button onclick="filterCategory('Main meals')">Main meals</button>
+                    <button onclick="filterCategory('Sides & Snacks')">Sides & Snacks</button>
+                    <button onclick="filterCategory('Desserts')">Desserts</button>
+                    <button onclick="filterCategory('Drinks')">Drinks</button>
+                </div>
+
+                <div class="list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="book-now" class="section hidden">
+        <div class="innerblur">
+            <div class="innerblur1">
+                <h2><span class="yellow">Book</span> a Table</h2>
+                <form id="book-form">
+                    <label>Name:</label><input id="booking-name" placeholder="Enter your name" type="text" required><br>
+                    <label>Email:</label><input id="booking-email" placeholder="Enter your email" type="email"
+                        required><br>
+                    <label>Date:</label><input id="booking-date" placeholder="Enter the date" type="date" required><br>
+                    <label>Total Guest:</label><input id="booking-guests" placeholder="Enter the total Guest"
+                        type="number" required><br>
+                    <button id="book-now-submit" type="submit">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="track" class="section hidden">
+        <div class="innerblur">
+            <div class="innerblur1">
+                <h2><span class="yellow">Track</span> orders & bookings</h2>
+                <form action>
+                    <label for="idtrack">OrderID or BookingID:</label>
+                    <input placeholder="e.g Q*000123" type="text" id="idtrack">
+                    <button class="trackbutton_book" style="display: none;" id="track-button" type="button">Search
+                        booking</button>
+                    <button class="trackbutton_order" style="display: none;" id="track-button-order"
+                        type="button">Search order</button>
+                </form>
+                <div class="booking_data">
+                    <h3>Date: <span id="track-booking-date"></span></h3>
+                    <h3>Time: <span id="track-booking-time"></span></h3>
+                    <h3>BookingID: <span id="track-booking-bookingid"></span></h3>
+                    <h3>Name: <span id="track-booking-name"></span></h3>
+                    <h3>Email: <span id="track-booking-email"></span></h3>
+                    <h3>Date Booked: <span id="track-booking-date-booked"></span></h3>
+                    <h3>Total Guest: <span id="track-booking-guest"></span></h3>
+                    <h3>Type: <span id="track-booking-type"></span></h3>
+                    <h3>Last Save Date: <span id="track-booking-last-save-date"></span></h3>
+                    <h3>Last Save Time: <span id="track-booking-last-save-time"></span></h3>
+                </div>
+                <div class="buttonEdits" style="display: none;">
+                    <a id="edit-button">Edit</a>
+                    <a id="save-button">Save</a>
+                    <a id="delete-button">Delete</a>
+                </div>
+                <div class="order_data">
+                    <h3>Date: <span id="track-order-date"></span></h3>
+                    <h3>Time: <span id="track-order-time"></span></h3>
+                    <h3>OrderID: <span id="track-order-orderid"></span></h3>
+                    <h3>Name: <span id="track-order-name"></span></h3>
+                    <h3>Item: <span id="track-order-item"></span></h3>
+                    <h3>Price: <span id="track-order-price"></span></h3>
+                    <h3>Quantity: <span id="track-order-quantity"></span></h3>
+                    <h3>Total: <span id="track-order-total"></span></h3>
+                    <h3>Type: <span id="track-order-type"></span></h3>
+                    <h3>Last Save Date: <span id="track-order-last-save-date"></span></h3>
+                    <h3>Last Save Time: <span id="track-order-last-save-time"></span></h3>
+                </div>
+                <div class="buttonEdits-order">
+                    <a id="delete-button-order">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="login" class="section hidden">
+        <div class="login-inner">
+            <div id="login-status" class="status"></div>
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Enter your email" id="login-email">
+            <label for="password">Password:</label>
+            <input type="text" placeholder="Enter your email" id="login-password">
+            <button class="login-button" id="login-button">Login</button>
+        </div>
+    </div>
+    <div id="register" class="section">
+        <div class="register-inner">
+            <div id="register-status" class="status"></div>
+            <label for="fName">First Name:</label>
+            <input type="text" id="fName">
+            <label for="lName">Last Name:</label>
+            <input type="text" id="lName">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Enter your email" id="email">
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter your password" id="password">
+            <label for="repeat-password">Repeat Password:</label>
+            <input type="password" placeholder="Confirm your password" id="repeat-password">
+            <button class="register-button" id="register-button">Register</button>
+
+
+        </div>
+    </div>
+
+    <!-- <div id="Profile" class="section hidden">
+        <div class="innerProfile">
+            <div class="html-dashboard">
+
+                <body class="body-dashboard">
+                    <nav id="sidebar-dashboard">
+                        <ul>
+                            <li>
+                                <div class="contain-logo">
+                                    <img src="image/logo.png" alt="">
+                                    <span class="logo"><span>QuickBites</span></span>
+                                </div>
+                                <button onclick=toggleSidebar() id="toggle-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+                                    </svg>
+                                </button>
+                            </li>
+                            <li>
+                                <a class="a-dashboard" class="a-dashboard" href="index.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
+                                    </svg>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="a-dashboard" href="dashboard.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <button id="toggleSubMenu" class="dropdown-dashboard">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z" />
+                                    </svg>
+                                    <span>Create</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+                                    </svg>
+                                </button>
+                                <ul class="sub-menu">
+                                    <div>
+                                        <li><a class="a-dashboard" href="#">Folder</a></li>
+                                        <li><a class="a-dashboard" href="#">Document</a></li>
+                                        <li><a class="a-dashboard" href="#">Project</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li>
+                                <button id="toggleSubMenu1" class="dropdown-dashboard">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z" />
+                                    </svg>
+                                    <span>Todo-Lists</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+                                    </svg>
+                                </button>
+                                <ul class="sub-menu">
+                                    <div>
+                                        <li><a class="a-dashboard" href="#">Work</a></li>
+                                        <li><a class="a-dashboard" href="#">Private</a></li>
+                                        <li><a class="a-dashboard" href="#">Coding</a></li>
+                                        <li><a class="a-dashboard" href="#">Gardening</a></li>
+                                        <li><a class="a-dashboard" href="#">School</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a-dashboard" href="calendar.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
+                                    </svg>
+                                    <span>Calendar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="a-dashboard" href="profile.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
+                                    </svg>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <main class="main-dashboard">
+                        <div class="container-dashboard">
+                            <h2>Dashboard</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis porro iure quaerat
+                                aliquam! Optio
+                                dolorum
+                                in eum provident, facilis error repellendus excepturi enim dolor deleniti adipisci
+                                consectetur
+                                doloremque, unde
+                                maiores odit sapiente. Atque ab necessitatibus laboriosam consequatur eius similique, ex
+                                dolorum eum
+                                eaque sequi
+                                id veritatis voluptates perspiciatis, cupiditate pariatur.</p>
+                        </div>
+                        <div class="container-dashboard">
+                            <h2>Example Heading</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquid corrupti, tenetur
+                                fuga magnam
+                                necessitatibus blanditiis quod sint excepturi laborum esse alias labore molestias
+                                adipisci, nostrum
+                                corporis ex
+                                maiores quis dolore quidem asperiores odio ad fugit eos! Delectus modi quas ipsa
+                                deleniti consequuntur
+                                nihil,
+                                hic in ipsum exercitationem blanditiis natus, ex, expedita eos. Excepturi quidem harum
+                                hic nam magnam
+                                deserunt
+                                illum quis dolorum eos ipsum ut natus sapiente sit, officia obcaecati assumenda tempore
+                                molestias? In
+                                fugiat
+                                iure laboriosam quasi, eum suscipit, harum autem saepe ut, soluta aspernatur ducimus eos
+                                magnam quidem
+                                officiis.
+                                Laboriosam nemo explicabo delectus, et quos vero cum?</p>
+                        </div>
+                        <div class="container-dashboard">
+                            <h2>Lorem Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore repudiandae labore
+                                veniam
+                                reprehenderit
+                                voluptatum, laboriosam perferendis fuga, dolore quam quas nostrum totam sunt esse
+                                expedita. Vero
+                                distinctio
+                                omnis accusantium. Quisquam ullam saepe cupiditate magni numquam totam perspiciatis
+                                error velit, debitis
+                                veniam
+                                labore possimus aut sunt, reiciendis natus. Impedit provident voluptatum nulla fuga
+                                error a magnam,
+                                corporis
+                                natus aperiam fugit quod perferendis quos quaerat, numquam sequi doloribus tenetur
+                                dolorem voluptate
+                                deleniti,
+                                odio minus. Deserunt eius quasi odit voluptas unde voluptatum dicta cumque
+                                exercitationem soluta beatae
+                                porro
+                                distinctio, delectus officiis, nobis officia ullam necessitatibus, rem natus corrupti
+                                nam! Est, nihil
+                                molestias
+                                fugiat sed quae enim commodi expedita soluta tempore molestiae fuga adipisci rem esse
+                                voluptates quos,
+                                ut quasi
+                                sunt ad a perspiciatis ducimus maxime animi. Adipisci officia doloribus magni alias
+                                maiores ab quo, eos
+                                mollitia
+                                sint esse. Labore odio, architecto nihil quaerat soluta blanditiis impedit laudantium
+                                esse officiis
+                                dolorum
+                                dolore libero, id sequi minima incidunt eum facilis itaque distinctio. Voluptas
+                                doloremque minus
+                                reiciendis ex
+                                beatae laudantium cum sequi repellat blanditiis molestiae. Cumque, libero nulla! Sit,
+                                quisquam magni
+                                dolore
+                                consectetur odio impedit adipisci voluptas ab, laboriosam autem nihil nam est ipsa
+                                excepturi obcaecati
+                                eos
+                                neque! Omnis similique qui veritatis. Repellat magni dolorem, facilis eaque, harum
+                                molestias, delectus
+                                est
+                                adipisci laudantium velit optio blanditiis debitis? Tenetur totam maiores animi officiis
+                                eligendi
+                                expedita nemo
+                                corrupti distinctio. Cum libero soluta beatae doloribus sit, repellendus nobis vel
+                                obcaecati velit
+                                dolorem
+                                voluptate magnam inventore quas pariatur quam reprehenderit molestiae hic sunt dicta
+                                illo amet quis
+                                magni
+                                accusamus sequi? Vel quis, dolores iusto suscipit excepturi laboriosam repellat
+                                consectetur! Maiores
+                                deserunt,
+                                pariatur nesciunt consequuntur recusandae minima assumenda consequatur inventore natus
+                                debitis illo
+                                velit
+                                voluptatum necessitatibus qui aspernatur illum impedit magni dignissimos ea, molestias
+                                tempora corporis,
+                                asperiores iusto possimus. Libero expedita aspernatur officia totam dolorum culpa,
+                                minus, alias adipisci
+                                eligendi suscipit voluptates, magnam laudantium? Inventore cupiditate perspiciatis
+                                mollitia excepturi,
+                                voluptatibus ducimus expedita provident. Dicta, odit. Odio, qui repudiandae! Maiores
+                                dignissimos, magnam
+                                deleniti reprehenderit ex cum ea eveniet placeat quae, ad at perspiciatis nobis corporis
+                                doloribus
+                                voluptatem
+                                nulla aliquam sunt accusamus facere quaerat necessitatibus ipsa! Nam quisquam dicta
+                                minima commodi
+                                nostrum.
+                                Exercitationem necessitatibus optio cumque voluptate modi amet consequuntur similique ex
+                                inventore
+                                explicabo
+                                doloremque esse sed sequi nemo rem, nostrum ullam. Totam repellat ut ipsa quisquam rem,
+                                nulla, suscipit
+                                debitis
+                                atque earum quis voluptates quaerat exercitationem architecto repellendus placeat,
+                                tenetur incidunt
+                                distinctio
+                                consectetur reiciendis minima officiis aliquam? Ipsum sequi hic officia iste a.
+                                Blanditiis, dicta!
+                                Eveniet
+                                molestias ut natus odio fugiat cum necessitatibus, architecto, quo a quisquam autem
+                                porro explicabo
+                                ipsam,
+                                nostrum deserunt possimus expedita eum est corporis quibusdam cupiditate! Fugiat,
+                                quaerat saepe. Harum
+                                modi
+                                eligendi beatae alias fugiat. Nostrum cum nisi saepe dicta iste cupiditate, deserunt
+                                omnis, doloremque a
+                                distinctio eum rem adipisci ab? Sapiente, dicta ipsam blanditiis earum omnis
+                                necessitatibus temporibus,
+                                excepturi accusantium delectus quo quod iusto ad aliquam nemo ducimus ab nobis inventore
+                                sequi
+                                veritatis? Nulla,
+                                dolorem. Voluptas, obcaecati non facilis repellendus ratione officiis veritatis, modi
+                                culpa rerum
+                                placeat
+                                voluptatum quia ex? Officia quos dolorum repellat deserunt voluptas praesentium.</p>
+                        </div>
+                    </main>
+                </body>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Modal Popup for Booking and Order Confirmation -->
+    <div id="confirmationModal" class="modal"
+        style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <div class="modal-content"
+            style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            <span id="closeModal"
+                style="color: #aaa; float: right; font-size: 24px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2 id="modalTitle" style="margin-top: 0; font-size: 20px;">Confirmation</h2>
+            <div id="modalBody" style="margin-top: 10px; font-size: 14px;"></div>
+            <button id="modalCloseButton"
+                style="margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+        </div>
+    </div>
+
+    <!-- Address Modal -->
+    <div id="address-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3>Shipping Address</h3>
+            <form id="address-form">
+                <label>Recipient:
+                    <input type="text" id="recipient" name="recipient" readonly>
+                </label>
+                <label>Contact:
+                    <input type="text" id="contact" name="contact" readonly>
+                </label>
+                <label>Street:
+                    <input type="text" id="street" name="street" required>
+                </label>
+                <label>Barangay:
+                    <input type="text" id="barangay" name="barangay" required>
+                </label>
+                <label>City:
+                    <input type="text" id="city" name="city" required>
+                </label>
+                <label>ZIP Code:
+                    <input type="text" id="zip" name="zip" required>
+                </label>
+                <label>Notes:
+                    <input type="text" id="notes" name="notes">
+                </label>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-delete-confirmation" id="closeAddressModal">Cancel</button>
+                    <button type="button" class="action-btn" id="edit-btn">Edit</button>
+                    <button type="submit" class="action-btn" id="place-order-btn">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <p>&copy; 2025 Quick Bites. All Rights Reserved.</p>
+    </footer>
+</body>
+<script type="module" src="index.js"></script>
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+</html>

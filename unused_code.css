@@ -1,0 +1,209 @@
+/* Image Gallery */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gallery-container img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3 ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+/*form*/
+
+#order {
+    padding: 40px;
+    background-color: #fff3e0;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form select,
+form input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#total-price {
+    font-size: 18px;
+    color: #ff6347;
+}
+
+/* Form Styling */
+form {
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #e5533d;
+}
+
+
+
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+
+/* from home-style.css - unused */
+
+/* Apply fade-in effect on page load */
+body {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Hero Section */
+#hero {
+    background-image: url('image/4.jpg');
+    /* Set your background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax scrolling */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ensure text color is white */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Keeps dark background for contrast */
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    /* Makes all text white */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Ensure all headings and paragraphs are white */
+.overlay h1,
+.overlay p {
+    color: white;
+    animation: fadeUp 1s ease-in-out;
+}
+
+/* Button Styling */
+.fade-button {
+    background-color: #ff6347;
+    color: white;
+    /* Ensures button text stay white */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fade-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(255, 99, 71, 0.5);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade-in transition effect */
+.fade-button {
+    background-color: #ff6347;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-button:hover {
+    opacity: 0.7;
+}
+
+
+/*  */

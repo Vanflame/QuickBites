@@ -1,0 +1,4 @@
+;/*FB_PKG_DELIM*/
+
+__d("EBGetLSVirtualDevices",["ReQL"],(function(a,b,c,d,e,f,g){"use strict";function a(a){return d("ReQL").toArrayAsync(d("ReQL").fromTableAscending(a.tables.encrypted_backups_virtual_devices))}g.getLSVirtualDevices=a}),98);
+__d("bumpVultureJSHash",["ODS"],(function(a,b,c,d,e,f,g){"use strict";var h;function a(a,b){(h||(h=d("ODS"))).bumpEntityKey(7506,"vulture_js",a,b)}g["default"]=a}),98);
